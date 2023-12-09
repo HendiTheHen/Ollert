@@ -1,0 +1,75 @@
+.right-bar {
+  background-color: #292929;
+}
+
+#main_section {
+  height: 100%;
+  padding: 33px 32px;
+  overflow: auto;
+}
+
+.user__info .username {
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  color: #fff;
+}
+
+.input-group label {
+  font-size: 24px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.input-group {
+  margin-top: 16px;
+}
+
+.input-group input {
+  margin-top: 16px;
+  padding: 19px 25px;
+  width: 100%;
+  border-radius: 16px !important;
+  background-color: #d9d9d9;
+  color: #696969;
+  outline: none;
+  border: none;
+}
+
+.user__info .displayname {
+  font-size: 24px;
+  color: #fff;
+  font-weight: 400;
+}
+
+.user__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avatar {
+  width: 225px;
+  height: 225px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+}
+
+.button-save {
+  margin-top: 20px;
+  width: 100%;
+  padding: 20px;
+  background-color: #4355fa;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 24px;
+  border-radius: 16px;
+  outline: none;
+  border: none;
+}
