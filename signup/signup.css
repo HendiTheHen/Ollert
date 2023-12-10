@@ -1,0 +1,40 @@
+@import url(../index.css);
+
+.signup__wrapper {
+  height: 100vh;
+  padding: 60px 0;
+  background-color: #292929;
+}
+
+.signup__wrapper .signup__label h1 {
+  font-size: 64px;
+  font-weight: 900;
+  color: #fff;
+}
+
+.signup__wrapper .signup__label span h1 {
+  font-size: 106px;
+}
+
+.signup__wrapper .form__signup {
+  background: #ececec;
+}
+
+.signup__wrapper .form__signup-title {
+  color: #00a3ff;
+  font-size: 64px;
+}
+
+.signup__wrapper .form__signup a {
+  color: #ff9901;
+}
+
+.form__signup::-webkit-scrollbar {
+  display: none;
+}
+
+.form__signup .signup__btn {
+  outline: none;
+  border: none;
+  background: #6ac9ff;
+}

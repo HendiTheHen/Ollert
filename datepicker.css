@@ -1,0 +1,43 @@
+#myID {
+  height: 50px;
+}
+
+.flatpickr-weekdays {
+  padding: 20px 0;
+}
+
+.flatpickr-calendar {
+  background-color: #424242;
+  color: #fff;
+  padding: 0 20px 10px;
+}
+
+.flatpickr-day {
+  color: #fff;
+  transition: all 0.1s ease-in;
+}
+
+.flatpickr-day:hover {
+  border-color: #4355fa;
+  background-color: #4355fa;
+}
+
+.flatpickr-current-month {
+  color: #fff;
+}
+
+.flatpickr-current-month
+  .flatpickr-monthDropdown-months
+  .flatpickr-monthDropdown-month {
+  background-color: #424242;
+}
+
+.flatpickr-weekday,
+.flatpickr-months .flatpickr-month,
+.flatpickr-current-month .flatpickr-monthDropdown-months {
+  background-color: #424242 !important;
+}
+
+.flatpickr-current-month .flatpickr-monthDropdown-months:hover {
+  background-color: #424242;
+}

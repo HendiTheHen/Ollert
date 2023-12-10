@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ollert</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://npmcdn.com/flatpickr/dist/themes/dark.css"
+    />
+    <link rel="stylesheet" href="./datepicker.css" />
+    <link rel="stylesheet" href="toDoList.css" />
+  </head>
+  <body>
+    <div class="container-fluid h-100">
+      <div class="upper-nav-bar">
+        <a href="/toDoList.html"><h1 class="title-text">OLLERT</h1></a>
+      </div>
+      <div class="below row h-100 flex-nowrap">
+        <div class="left-bar col-2 p-0">
+          <div class="left-bar__header d-flex align-items-center">
+            <a
+              href="/profile"
+              class="left-bar__user d-flex align-items-center gap-3"
+            >
+              <!-- onClick="handleNavigateProfile(event)" -->
+
+              <figure class="avatar__wrapper m-0">
+                <img src="./assets/images/avatar_default.png" alt="avatar" />
+              </figure>
+              <h4 class="username m-0 d-none d-xl-block">Bao-chan</h4>
+            </a>
+            <div
+              class="collapse__left-bar"
+              onClick="handleCollapseLeftBar(event)"
+            ></div>
+          </div>
+          <div class="work-space-view__wrapper">
+            <h3 class="work-space-view__label">Workspace views</h3>
+            <div class="work-space-view__list">
+              <a
+                href="/table"
+                class="work-space-view__item d-flex align-items-center gap-2"
+              >
+                <div
+                  class="work-space-view__item-icon work-space-view__item-icon--table"
+                ></div>
+                <div class="work-space-view__item-label">table</div>
+              </a>
+              <a
+                href="/calendar"
+                class="work-space-view__item d-flex align-items-center gap-2"
+              >
+                <div
+                  class="work-space-view__item-icon work-space-view__item-icon--calendar"
+                ></div>
+                <div class="work-space-view__item-label">calendar</div>
+              </a>
+            </div>
+          </div>
+          <div class="boards__wrapper">
+            <div
+              class="boards__header d-flex align-items-center justify-content-between"
+            >
+              <h3 class="boards__label">Boards</h3>
+              <div
+                class="add__board-icon"
+                onClick="handleAddBoard(event)"
+              ></div>
+            </div>
+            <div class="boards__list">
+              <div
+                class="boards__item boards__item--current d-flex align-items-center justify-content-between"
+              >
+                <div class="d-flex align-items-center gap-2">
+                  <div class="boards__item-icon"></div>
+                  <div class="boards__item-label">Text</div>
+                </div>
+                <div
+                  class="boards__item-del-icon"
+                  onclick="handleDelBoard(event)"
+                ></div>
+              </div>
+              <div
+                class="boards__item d-flex align-items-center justify-content-between"
+              >
+                <div class="d-flex align-items-center gap-2">
+                  <div class="boards__item-icon"></div>
+                  <div class="boards__item-label">Text</div>
+                </div>
+                <div class="boards__item-del-icon"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="right-bar" class="right-bar col-8 p-0"></div>
+      </div>
+    </div>
+
+    <!-- <button
+      type="button"
+      class="btn btn-primary"
+      data-bs-toggle="modal"
+      data-bs-target="#task-detail__container"
+    >
+      Launch demo modal
+    </button> -->
+
+    <div class="modal fade" id="task-detail__container">
+      <div class="modal-dialog">
+        <div
+          class="modal-content overflow-y-auto overflow-x-hidden position-relative"
+          style="background-color: black; max-height: calc(100vh - 60px)"
+        >
+          <div
+            class="position-sticky pe-2"
+            style="top: 10px; z-index: 9999; direction: rtl"
+          >
+            <button
+              type="button"
+              class="btn-close btn-close-white shadow-none"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-8">
+                  <h2
+                    class="task-title text-white fs-2"
+                    style="outline: noneP"
+                    contenteditable="true"
+                  >
+                    Task
+                  </h2>
+                  <div class="task-tag">
+                    <!-- <div
+                      class="tdl__show-task-date-tag d-flex align-items-center justify-content-between gap-3 mt-3"
+                    >
+                      <div class="d-flex align-items-center gap-3">
+                        <div class="clock-icon"></div>
+                        <p class="m-0" style="font-size: 13px">Date</p>
+                      </div>
+                      <button
+                        type="button"
+                        class="delete-date btn-close shadow-none"
+                      ></button>
+                    </div> -->
+                  </div>
+                  <div class="line-divider"></div>
+                  <div class="task-description">
+                    <h3 class="description-label text-white fs-4">
+                      Description
+                    </h3>
+                    <p
+                      class="description-name fs-5 text-white mt-3"
+                      contenteditable="true"
+                    >
+                      Desc
+                    </p>
+                  </div>
+                  <div class="line-divider"></div>
+                  <div class="task-comment__container">
+                    <div class="task-comment__label mb-3 text-white fs-4">
+                      Comments
+                    </div>
+                    <div class="task-comment__input-group d-flex mt-3">
+                      <div class="avatar m-0 rounded-pill">
+                        <img src="./assets/images/avatar_default.png" alt="" />
+                      </div>
+                      <input type="text" placeholder="Write a comment..." />
+                    </div>
+                    <div class="comments-list mt-3">
+                      <!-- <div class="comments-item d-flex justify-content-between">
+                        <div div class="avatar m-0 flex-shrink-0">
+                          <img
+                            src="./assets/images/avatar_default.png"
+                            alt=""
+                          />
+                        </div>
+                        <div class="content ms-4">
+                          <div class="username text-white">Username</div>
+                          <p class="text-white fs-5 text-break">
+                            ASJDFHSKKKKKKHDSFJKD.ASJDFHSKKKKKKHDSFJKD.ASJDFHSKKKKKKHDSFJKD.ASJDFHSKKKKKKHDSFJKD.ASJDFHSKKKKKKHDSFJKD.ASJDFHSKKKKKKHDSFJKD.ASJDFHSKKKKKKHDSFJKD.ASJDFHSKKKKKKHDSFJKD.ASJDFHSKKKKKKHDSFJKD.ASJDFHSKKKKKKHDSFJKD.ASJDFHSKKKKKKHDSFJKD.ASJDFHSKKKKKKHDSFJKD.ASJDFHSKKKKKKHDSFJKD.ASJDFHSKKKKKKHDSFJKD.ASJDFHSKKKKKKHDSFJKD.ASJDFHSKKKKKKHDSFJKD.
+                          </p>
+                        </div>
+                      </div> -->
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4 pe-4">
+                  <div class="date-picker">
+                    <div
+                      class="button-show-picker w-100 tdl__show-task-date-tag d-flex align-items-center gap-3 mt-3"
+                    >
+                      <div class="clock-icon"></div>
+                      <p class="m-0 text-white" style="font-size: 20px">Date</p>
+                      <input type="text" id="myID" />
+                    </div>
+                  </div>
+                  <div class="member__group">
+                    <div
+                      class="add-mem position-relative d-flex align-items-center gap-3 mt-3"
+                      onClick="handleShowFormAddMem(event)"
+                    >
+                      <div class="mem-icon"></div>
+                      <p class="m-0 text-white" style="font-size: 20px">
+                        Member
+                      </p>
+                    </div>
+
+                    <form
+                      class="input__enter-member d-none flex-column align-items-center position-relative"
+                    >
+                      <div class="position-relative">
+                        <input
+                          onInput="handleSearch(event)"
+                          type="text"
+                          placeholder="Enter member's username here..."
+                        />
+                        <div class="search_user__result">
+                          <!-- <div class="search_user__item">
+                            <div class="container-fluid">
+                              <div class="row">
+                                <div class="col-7">
+                                  <p class="username m-0">bhc</p>
+                                </div>
+                                <div class="col-5">
+                                  <p class="display-name m-0">Bao-chan</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div> -->
+                        </div>
+                      </div>
+
+                      <div
+                        class="add_member-btn mt-2"
+                        type="button"
+                        onClick="handleCloseFormAddMem(event)"
+                      >
+                        Close
+                      </div>
+                    </form>
+                  </div>
+
+                  <div class="member__avatar-list"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./env.js"></script>
+    <script src="./datepicker.js"></script>
+    <script src="./navigate.js"></script>
+    <script src="./toDoList.js"></script>
+    <!-- <script src="profile.js"></script> -->
+  </body>
+</html>
